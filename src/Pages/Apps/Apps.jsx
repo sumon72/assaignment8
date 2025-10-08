@@ -1,20 +1,19 @@
 import { useState } from "react";
-import { NavLink } from "react-router";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGooglePlay, faAppStoreIos } from '@fortawesome/free-brands-svg-icons';
-import AppsData from '../AppsData.json';
-const TopAppsSection = () => {
+import AppsData from '../../AppsData.json';
+const Apps = () => {
 
     return (
         <>
             <section className="py-16 px-4 bg-base-100 text-center">
-                <h2 className="text-3xl font-bold">Trending Apps</h2>
+                <h2 className="text-3xl font-bold">Our All Applications</h2>
                 <p className="text-gray-500 mt-2">
-                    Explore all trending apps on the market developed by us
+                    Explore All Apps on the Market developed by us. We code for Millions
                 </p>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 mt-10 max-w-6xl mx-auto">
-                    {AppsData.slice(0, 8).map((app, i) => (
+                    {AppsData.map((app, i) => (
                         <div
                             key={i}
                             className="card bg-base-200 shadow-md p-4 hover:shadow-xl transition"
@@ -38,14 +37,10 @@ const TopAppsSection = () => {
                     ))}
                 </div>
 
-
-
-                <NavLink className="btn mt-8 bg-gradient-to-r from-[#632EE3] to-[#9F62F2] text-white" to="/apps">Show All</NavLink>
-
             </section>
 
         </>
     );
 };
 
-export default TopAppsSection;
+export default Apps;

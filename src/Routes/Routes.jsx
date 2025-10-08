@@ -3,6 +3,7 @@ import { createBrowserRouter } from "react-router";
 import Root from "../Pages/Root/Root.jsx";
 import ErrorPage from "../Pages/Error/ErrorPage.jsx";
 import Home from "../Pages/Home/Home.jsx";
+import Apps from "../Pages/Apps/Apps.jsx";
 
 export const router = createBrowserRouter([
     {
@@ -14,7 +15,7 @@ export const router = createBrowserRouter([
             path: "/",
             Component: Home
         },
-        { path: "/apps", element: <h3>apss</h3> },
+        { path: "/apps", Component: Apps },
 
         ]
     },
