@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { NavLink } from "react-router";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import logo from "../assets/logo.png";
@@ -17,9 +18,9 @@ const NavBar = () => {
 
                 {/* Center - Menu */}
                 <div className="hidden lg:flex gap-8 justify-center flex-1">
-                    <a className="hover:text-primary cursor-pointer">Home</a>
-                    <a className="hover:text-primary cursor-pointer">Apps</a>
-                    <a className="hover:text-primary cursor-pointer">Installation</a>
+                    <NavLink className="hover:text-primary cursor-pointer" to="/">Home</NavLink>
+                    <NavLink className="hover:text-primary cursor-pointer" to="/apps">Apps</NavLink>
+                    <NavLink className="hover:text-primary cursor-pointer" to="/installation">Installation</NavLink>
                 </div>
 
                 {/* Right - Button */}
@@ -64,10 +65,9 @@ const NavBar = () => {
                 {/* Mobile Dropdown */}
                 {isMenuOpen && (
                     <div className="absolute top-16 right-4 bg-white shadow-md rounded-xl p-4 flex flex-col gap-3 lg:hidden w-48 z-50">
-                        <a className="hover:text-primary">Home</a>
-                        <a className="hover:text-primary">Apps</a>
-                        <a className="hover:text-primary">Installation</a>
-
+                        <NavLink className="hover:text-primary" to="/">Home</NavLink>
+                        <NavLink className="hover:text-primary" to="/apps">Apps</NavLink>
+                        <NavLink className="hover:text-primary" to="/installation">Installation</NavLink>
                         <button className="btn btn-sm mt-2 text-white bg-gradient-to-r from-[#632EE3] to-[#9F62F2] rounded-sm">
                             <FontAwesomeIcon icon={faGithub} /> Contribute
                         </button>
