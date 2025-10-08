@@ -8,7 +8,7 @@ const Banner = () => {
 
     return (
         <>
-            <section className="text-center py-16 px-4 bg-base-100">
+            <section className="text-center pt-16 bg-base-100">
                 <h1 className="text-4xl md:text-5xl font-bold">
                     We Build <br></br> <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#632EE3] to-[#9F62F2]">Productive</span> Apps
                 </h1>
