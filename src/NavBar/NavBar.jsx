@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUser } from "@fortawesome/free-solid-svg-icons";
+import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import logo from "../assets/logo.png";
 const NavBar = () => {
 
@@ -25,7 +25,7 @@ const NavBar = () => {
                 {/* Right - Button */}
                 <div className="hidden lg:flex items-center">
                     <button className="btn btn-sm text-white bg-gradient-to-r from-[#632EE3] to-[#9F62F2] rounded-sm">
-                        <FontAwesomeIcon icon={faUser} /> Contribute
+                        <FontAwesomeIcon icon={faGithub} />Contribute
                     </button>
                 </div>
 
@@ -69,7 +69,7 @@ const NavBar = () => {
                         <a className="hover:text-primary">Installation</a>
 
                         <button className="btn btn-sm mt-2 text-white bg-gradient-to-r from-[#632EE3] to-[#9F62F2] rounded-sm">
-                            <FontAwesomeIcon icon={faUser} /> Contribute
+                            <FontAwesomeIcon icon={faGithub} /> Contribute
                         </button>
                     </div>
                 )}
