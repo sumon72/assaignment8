@@ -11,27 +11,30 @@ const NavBar = () => {
         <>
             <div className="navbar bg-white shadow-sm px-6 flex justify-between items-center">
                 {/* Left - Logo + Text */}
+
                 <div className="flex items-center gap-2 flex-shrink-0">
-                    <img src={logo} alt="Logo" width={40} height={40} />
-                    <a className="text-xl font-semibold tracking-wide">HERO.IO</a>
+                    <NavLink to="/">
+                        <img src={logo} alt="Logo" width={40} height={40} />
+                    </NavLink>
+                    <NavLink className="text-xl font-semibold tracking-wide" to="/">HERO.IO</NavLink>
                 </div>
 
                 {/* Center - Menu */}
-                <div className="hidden lg:flex gap-8 justify-center flex-1">
+                < div className="hidden lg:flex gap-8 justify-center flex-1" >
                     <NavLink className="hover:text-primary cursor-pointer" to="/">Home</NavLink>
                     <NavLink className="hover:text-primary cursor-pointer" to="/apps">Apps</NavLink>
                     <NavLink className="hover:text-primary cursor-pointer" to="/installation">Installation</NavLink>
-                </div>
+                </div >
 
                 {/* Right - Button */}
-                <div className="hidden lg:flex items-center">
-                    <button className="btn btn-sm text-white bg-gradient-to-r from-[#632EE3] to-[#9F62F2] rounded-sm">
+                < div className="hidden lg:flex items-center" >
+                    <a href="https://github.com/sumon72" className="btn btn-sm text-white bg-gradient-to-r from-[#632EE3] to-[#9F62F2] rounded-sm">
                         <FontAwesomeIcon icon={faGithub} />Contribute
-                    </button>
-                </div>
+                    </a>
+                </div >
 
                 {/* Mobile Menu Button */}
-                <div className="lg:hidden">
+                < div className="lg:hidden" >
                     <button
                         className="btn btn-ghost btn-circle"
                         onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -60,20 +63,22 @@ const NavBar = () => {
                             )}
                         </svg>
                     </button>
-                </div>
+                </div >
 
                 {/* Mobile Dropdown */}
-                {isMenuOpen && (
-                    <div className="absolute top-16 right-4 bg-white shadow-md rounded-xl p-4 flex flex-col gap-3 lg:hidden w-48 z-50">
-                        <NavLink className="hover:text-primary" to="/">Home</NavLink>
-                        <NavLink className="hover:text-primary" to="/apps">Apps</NavLink>
-                        <NavLink className="hover:text-primary" to="/installation">Installation</NavLink>
-                        <button className="btn btn-sm mt-2 text-white bg-gradient-to-r from-[#632EE3] to-[#9F62F2] rounded-sm">
-                            <FontAwesomeIcon icon={faGithub} /> Contribute
-                        </button>
-                    </div>
-                )}
-            </div>
+                {
+                    isMenuOpen && (
+                        <div className="absolute top-16 right-4 bg-white shadow-md rounded-xl p-4 flex flex-col gap-3 lg:hidden w-48 z-50">
+                            <NavLink className="hover:text-primary" to="/">Home</NavLink>
+                            <NavLink className="hover:text-primary" to="/apps">Apps</NavLink>
+                            <NavLink className="hover:text-primary" to="/installation">Installation</NavLink>
+                            <a href="https://github.com/sumon72" className="btn btn-sm mt-2 text-white bg-gradient-to-r from-[#632EE3] to-[#9F62F2] rounded-sm">
+                                <FontAwesomeIcon icon={faGithub} /> Contribute
+                            </a>
+                        </div>
+                    )
+                }
+            </div >
 
         </>
     );

@@ -1,6 +1,10 @@
 import { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faDownload } from '@fortawesome/free-solid-svg-icons';
+import Rating_Icon from "../../assets/icon-ratings.png";
 import { NavLink } from "react-router";
 import AppsData from '../../AppsData.json';
+
 const TopAppsSection = () => {
 
     return (
@@ -29,8 +33,11 @@ const TopAppsSection = () => {
                             <h3 className="font-medium">{app.title}</h3>
 
                             <div className="flex justify-between items-center mt-2 text-sm">
-                                <span className="text-success">⬇ 9M</span>
-                                <span className="text-warning">⭐ 5</span>
+                                <span className="text-[#00D390]"><FontAwesomeIcon icon={faDownload} /> 9M</span>
+                                <span class="flex items-center space-x-1 bg-[#FFF0E1] px-3 py-1 rounded-full text-[#FF8811]">
+                                    <img src={Rating_Icon} alt="Rating Icon" className="h-4 w-4" />
+                                    <span>5</span>
+                                </span>
                             </div>
                         </div>
                     ))}

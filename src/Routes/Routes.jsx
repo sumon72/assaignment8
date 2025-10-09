@@ -4,6 +4,7 @@ import Root from "../Pages/Root/Root.jsx";
 import ErrorPage from "../Pages/Error/ErrorPage.jsx";
 import Home from "../Pages/Home/Home.jsx";
 import Apps from "../Pages/Apps/Apps.jsx";
+import Installation from "../Pages/Installation/Installation.jsx";
 
 export const router = createBrowserRouter([
     {
@@ -16,6 +17,7 @@ export const router = createBrowserRouter([
             Component: Home
         },
         { path: "/apps", Component: Apps },
+        { path: "/installation", Component: Installation },
 
         ]
     },
