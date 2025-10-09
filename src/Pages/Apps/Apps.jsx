@@ -55,7 +55,7 @@ const Apps = () => {
 
                             <div className="flex justify-between items-center mt-2 text-sm">
                                 <span className="text-[#00D390]"><FontAwesomeIcon icon={faDownload} /> 9M</span>
-                                <span class="flex items-center space-x-1 bg-[#FFF0E1] px-3 py-1 rounded-full text-[#FF8811]">
+                                <span className="flex items-center space-x-1 bg-[#FFF0E1] px-3 py-1 rounded-full text-[#FF8811]">
                                     <img src={Rating_Icon} alt="Rating Icon" className="h-4 w-4" />
                                     <span>5</span>
                                 </span>
