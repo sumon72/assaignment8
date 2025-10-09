@@ -1,7 +1,5 @@
 import { useState } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faGooglePlay, faAppStoreIos } from '@fortawesome/free-brands-svg-icons';
-import hero from "../assets/hero.png";
+
 const StatesSection = () => {
 
 

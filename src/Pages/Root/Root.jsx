@@ -1,8 +1,8 @@
 import React from "react";
 import '../../../src/App.css'
 import { Outlet } from "react-router";
-import NavBar from "../../NavBar/NavBar.jsx"
-import Footer from "../../Footer/Footer.jsx"
+import NavBar from "../../Component/NavBar/NavBar.jsx"
+import Footer from "../../Component/Footer/Footer.jsx"
 const Root = () => {
     return (
         <>

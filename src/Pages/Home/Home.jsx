@@ -1,7 +1,7 @@
 import React from "react";
-import Banner from "../../Banner/Banner.jsx"
-import StatesSection from "../../StatesSection/StatesSection.jsx"
-import TopAppsSection from "../../TopAppsSection/TopAppsSection.jsx"
+import Banner from "../../Component/Banner/Banner.jsx"
+import StatesSection from "../../Component/StatesSection/StatesSection.jsx"
+import TopAppsSection from "../../Component/TopAppsSection/TopAppsSection.jsx"
 const Root = () => {
     return (
         <>

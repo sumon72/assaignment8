@@ -2,7 +2,7 @@ import { useState } from "react";
 import { NavLink } from "react-router";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
-import logo from "../assets/logo.png";
+import logo from "../../assets/logo.png";
 const NavBar = () => {
 
     const [isMenuOpen, setIsMenuOpen] = useState(false);

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGooglePlay,faAppStoreIos } from '@fortawesome/free-brands-svg-icons';
-import hero from "../assets/hero.png";
+import hero from "../../assets/hero.png";
 const Banner = () => {
 
 
@@ -17,8 +17,8 @@ const Banner = () => {
                 </p>
 
                 <div className="mt-6 flex justify-center gap-4">
-                    <button className="btn btn-outline"><FontAwesomeIcon icon={faGooglePlay}  /> Google Play</button>
-                    <button className="btn btn-outline"><FontAwesomeIcon icon={faAppStoreIos} />App Store</button>
+                    <a href="https://play.google.com/store/games?hl=en" className="btn btn-outline"><FontAwesomeIcon icon={faGooglePlay}  /> Google Play</a>
+                    <a href="https://www.apple.com/app-store/" className="btn btn-outline"><FontAwesomeIcon icon={faAppStoreIos} />App Store</a>
                 </div>
 
                 <div className="mt-10 flex justify-center">

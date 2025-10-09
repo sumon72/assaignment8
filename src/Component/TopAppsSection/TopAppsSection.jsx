@@ -1,8 +1,6 @@
 import { useState } from "react";
 import { NavLink } from "react-router";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faGooglePlay, faAppStoreIos } from '@fortawesome/free-brands-svg-icons';
-import AppsData from '../AppsData.json';
+import AppsData from '../../AppsData.json';
 const TopAppsSection = () => {
 
     return (
