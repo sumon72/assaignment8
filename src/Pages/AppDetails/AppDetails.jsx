@@ -86,7 +86,7 @@ const AppDetails = () => {
                     {/* Ratings */}
                     <section className="mt-10">
                         <h3 className="text-lg font-semibold mb-4">Ratings</h3>
-                        <div className="w-full h-70">
+                        <div className="w-full h-60">
                             <ResponsiveContainer>
                                 <BarChart
                                     layout="vertical"
