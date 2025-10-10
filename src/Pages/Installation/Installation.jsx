@@ -8,10 +8,9 @@ import { toast } from 'react-toastify';
 const Apps = () => {
 
     const installedApps = JSON.parse(localStorage.getItem("InstalledApps")) || [];
+    const [InstalledAppsArray, setInstalledAppsArray] = useState(installedApps);
 
-     const [InstalledAppsArray, setInstalledAppsArray] = useState(installedApps);
 
-   
     const UnInstallApp = (id) => {
 
         const installedApps = JSON.parse(localStorage.getItem("InstalledApps")) || [];
@@ -23,6 +22,17 @@ const Apps = () => {
 
 
     }
+
+    const [dropdownLabel, setDropdownLabel] = useState("Sort By Size ⬇️");
+    const handleSort = (order) => {
+        const sortedApps = [...InstalledAppsArray].sort((a, b) => {
+            if (order === "asc") return a.size - b.size;
+            else return b.size - a.size;
+        });
+
+        setDropdownLabel(order === "asc" ? "Size: Low-High ⬇️" : "Size: High-Low ⬇️");
+        setInstalledAppsArray(sortedApps);
+    };
 
     return (
         <>
@@ -39,10 +49,14 @@ const Apps = () => {
 
                     {/* Dropdown */}
                     <div className="dropdown dropdown-bottom">
-                        <div tabIndex={0} role="button" className="btn m-1">Sort By Size ⬇️</div>
+                        <div tabIndex={0} role="button" className="btn m-1">{dropdownLabel}</div>
                         <ul tabIndex={0} className="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
-                            <li><a>Low-High</a></li>
-                            <li><a>Low-High</a></li>
+                            <li>
+                                <a onClick={() => handleSort("asc")}>Low-High</a>
+                            </li>
+                            <li>
+                                <a onClick={() => handleSort("desc")}>High-Low</a>
+                            </li>
                         </ul>
                     </div>
 
