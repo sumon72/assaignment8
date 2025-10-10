@@ -14,12 +14,40 @@ import {
     ResponsiveContainer,
     LabelList
 } from "recharts";
+import { toast } from 'react-toastify';
 
 const AppDetails = () => {
     const { id } = useParams();
 
     const [getAppDetails, setAppDetails] = useState(AppsData.find((item) => item.id === Number(id)));
+    const [buttondisable, setbuttondisable] = useState(false);
 
+    useEffect(() => {
+        const installedApps = JSON.parse(localStorage.getItem("InstalledApps")) || [];
+        const existingIndex = installedApps.findIndex(app => app.id === Number(id));
+
+        if (existingIndex === -1) {
+            setbuttondisable(false);
+        } else {
+            setbuttondisable(true);
+        }
+    }, [id]);
+
+
+
+    const InstallApp = () => {
+
+        const installedApps = JSON.parse(localStorage.getItem("InstalledApps")) || [];
+        installedApps.push({
+            id: getAppDetails.id,
+            isInstall: 1
+        });
+        localStorage.setItem("InstalledApps", JSON.stringify(installedApps));
+        setbuttondisable(true);
+        toast("Apps successfully Installed.");
+
+
+    }
 
     return (
         <>
@@ -79,7 +107,7 @@ const AppDetails = () => {
                                 </div>
                             </div>
 
-                            <button className="btn btn-success mt-5 px-6">Install Now ({getAppDetails.size} MB)</button>
+                            <button onClick={() => InstallApp()} disabled={buttondisable} className="btn btn-success mt-5 px-6">{buttondisable? 'Installed':'Install Now'} ({getAppDetails.size} MB)</button>
                         </div>
                     </div>
 
@@ -90,7 +118,7 @@ const AppDetails = () => {
                             <ResponsiveContainer>
                                 <BarChart
                                     layout="vertical"
-                                    data={getAppDetails.ratings}  
+                                    data={getAppDetails.ratings}
                                 >
                                     <CartesianGrid strokeDasharray="3 3" />
                                     <XAxis type="number" />
