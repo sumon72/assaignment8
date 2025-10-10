@@ -5,6 +5,7 @@ import { faDownload } from '@fortawesome/free-solid-svg-icons';
 import AppsData from '../../AppsData.json';
 import Rating_Icon from "../../assets/icon-ratings.png";
 import { toast } from 'react-toastify';
+import Loader from "../../Component/Loader/Loader.jsx"
 const Apps = () => {
 
     const installedApps = JSON.parse(localStorage.getItem("InstalledApps")) || [];
@@ -33,6 +34,16 @@ const Apps = () => {
         setDropdownLabel(order === "asc" ? "Size: Low-High ⬇️" : "Size: High-Low ⬇️");
         setInstalledAppsArray(sortedApps);
     };
+
+    const [loading, setLoading] = useState(true);
+    useEffect(() => {
+        setTimeout(() => {
+            setLoading(false);
+        }, 300);
+    }, []);
+
+    if (loading) return <Loader />;
+
 
     return (
         <>
@@ -68,7 +79,7 @@ const Apps = () => {
                             key={i}
                             className="flex items-center justify-between bg-base-200 shadow-md p-4 rounded-xl hover:shadow-lg transition"
                         >
-                            
+
                             <div className="flex items-center space-x-4">
                                 <div className="w-16 h-16 rounded-lg overflow-hidden flex-shrink-0">
                                     <img
@@ -78,7 +89,7 @@ const Apps = () => {
                                     />
                                 </div>
 
-                                
+
                                 <div>
                                     <h3 className="font-medium text-base">{app.title}</h3>
                                     <div className="flex items-center mt-1 text-sm space-x-3">
@@ -95,7 +106,7 @@ const Apps = () => {
                                 </div>
                             </div>
 
-                           
+
                             <button onClick={() => UnInstallApp(app.id)} className="px-4 py-2 rounded-sm text-white font-medium bg-[#00D390] hover:opacity-90 transition">
                                 Uninstall
                             </button>

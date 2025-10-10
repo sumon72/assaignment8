@@ -18,9 +18,9 @@ const TopAppsSection = () => {
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 mt-10 max-w-6xl mx-auto">
                     {AppsData.slice(0, 8).map((app, i) => (
-                          <NavLink to={`/AppDetails/${app.id}`}>
+                          <NavLink key={i} to={`/AppDetails/${app.id}`}>
                         <div
-                            key={i}
+                           
                             className="card bg-base-200 shadow-md p-4 hover:shadow-xl transition"
                         >
                             {/* Image fills the preview area */}

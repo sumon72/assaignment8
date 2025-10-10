@@ -1,9 +1,10 @@
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import { NavLink } from "react-router";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDownload } from '@fortawesome/free-solid-svg-icons';
 import AppsData from '../../AppsData.json';
 import Rating_Icon from "../../assets/icon-ratings.png";
+import Loader from "../../Component/Loader/Loader.jsx"
 const Apps = () => {
 
     const [getAllApps, setAllApps] = useState(AppsData);
@@ -12,6 +13,15 @@ const Apps = () => {
     const filteredApps = getAllApps.filter(app =>
         app.title.toLowerCase().includes(searchQuery.toLowerCase())
     );
+
+    const [loading, setLoading] = useState(true);
+    useEffect(() => {
+        setTimeout(() => {
+            setLoading(false);
+        }, 300);
+    }, []);
+
+    if (loading) return <Loader />;
 
 
     return (
@@ -52,7 +62,7 @@ const Apps = () => {
                     {filteredApps.map((app, i) => (
                         <NavLink key={i} to={`/AppDetails/${app.id}`}>
                             <div
-                                
+
                                 className="card bg-base-200 shadow-md p-4 hover:shadow-xl transition"
                             >
                                 {/* Image fills the preview area */}

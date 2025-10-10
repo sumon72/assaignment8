@@ -15,7 +15,7 @@ import {
     LabelList
 } from "recharts";
 import { toast } from 'react-toastify';
-
+import Loader from "../../Component/Loader/Loader.jsx"
 const AppDetails = () => {
     const { id } = useParams();
 
@@ -34,6 +34,14 @@ const AppDetails = () => {
     }, [id]);
 
 
+    const [loading, setLoading] = useState(true);
+    useEffect(() => {
+        setTimeout(() => {
+            setLoading(false);
+        }, 300);
+    }, []);
+
+    if (loading) return <Loader />;
 
     const InstallApp = (param) => {
 
