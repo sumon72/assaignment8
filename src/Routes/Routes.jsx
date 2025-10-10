@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { createBrowserRouter } from "react-router";
 import Root from "../Pages/Root/Root.jsx";
 import ErrorPage from "../Pages/Error/ErrorPage.jsx";
+import NotFound from "../Pages/Error/NotFound.jsx";
 import Home from "../Pages/Home/Home.jsx";
 import Apps from "../Pages/Apps/Apps.jsx";
 import Installation from "../Pages/Installation/Installation.jsx";
@@ -22,7 +23,11 @@ export const router = createBrowserRouter([
         {
             path: "AppDetails",
             children: [
-                { path: ":id", Component: AppDetails },
+                {
+                    path: ":id",
+                    Component: AppDetails
+                    
+                },
 
             ],
         },
