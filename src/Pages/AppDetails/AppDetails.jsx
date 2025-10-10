@@ -35,16 +35,25 @@ const AppDetails = () => {
 
 
 
-    const InstallApp = () => {
+    const InstallApp = (param) => {
 
         const installedApps = JSON.parse(localStorage.getItem("InstalledApps")) || [];
         installedApps.push({
-            id: getAppDetails.id,
+            image: param.image,
+            title: param.title,
+            companyName: param.companyName,
+            id: param.id,
+            description: param.description,
+            size: param.size,
+            reviews: param.reviews,
+            ratingAvg: param.ratingAvg,
+            downloads: param.downloads,
+            ratings: param.ratings,
             isInstall: 1
         });
         localStorage.setItem("InstalledApps", JSON.stringify(installedApps));
         setbuttondisable(true);
-        toast("Apps successfully Installed.");
+        toast("Apps Installed successfully.");
 
 
     }
@@ -107,7 +116,7 @@ const AppDetails = () => {
                                 </div>
                             </div>
 
-                            <button onClick={() => InstallApp()} disabled={buttondisable} className="btn btn-success mt-5 px-6">{buttondisable? 'Installed':'Install Now'} ({getAppDetails.size} MB)</button>
+                            <button onClick={() => InstallApp(getAppDetails)} disabled={buttondisable} className="btn btn-success mt-5 px-6">{buttondisable ? 'Installed' : 'Install Now'} ({getAppDetails.size} MB)</button>
                         </div>
                     </div>
 

@@ -1,10 +1,28 @@
-import React from "react";
+import { useState, useEffect } from "react";
 // import { ChevronDown } from "lucide-react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDownload } from '@fortawesome/free-solid-svg-icons';
 import AppsData from '../../AppsData.json';
 import Rating_Icon from "../../assets/icon-ratings.png";
+import { toast } from 'react-toastify';
 const Apps = () => {
+
+    const installedApps = JSON.parse(localStorage.getItem("InstalledApps")) || [];
+
+     const [InstalledAppsArray, setInstalledAppsArray] = useState(installedApps);
+
+   
+    const UnInstallApp = (id) => {
+
+        const installedApps = JSON.parse(localStorage.getItem("InstalledApps")) || [];
+        const updatedApps = installedApps.filter(app => app.id !== id);
+        localStorage.setItem("InstalledApps", JSON.stringify(updatedApps));
+        const UpdateinstalledApps = JSON.parse(localStorage.getItem("InstalledApps")) || [];
+        setInstalledAppsArray(UpdateinstalledApps);
+        toast("Apps UnInstalled Successfully.");
+
+
+    }
 
     return (
         <>
@@ -16,7 +34,7 @@ const Apps = () => {
 
                 <div className="max-w-6xl mx-auto flex justify-between mt-10">
                     <div>
-                        <span>(4)</span><span> Apps Found</span>
+                        <span>({InstalledAppsArray.length})</span><span> Apps Found</span>
                     </div>
 
                     {/* Dropdown */}
@@ -31,7 +49,7 @@ const Apps = () => {
                 </div>
 
                 <div className="space-y-4 mt-5 max-w-6xl mx-auto">
-                    {AppsData.map((app, i) => (
+                    {InstalledAppsArray.map((app, i) => (
                         <div
                             key={i}
                             className="flex items-center justify-between bg-base-200 shadow-md p-4 rounded-xl hover:shadow-lg transition"
@@ -64,11 +82,17 @@ const Apps = () => {
                             </div>
 
                             {/* Right: Uninstall Button */}
-                            <button className="px-4 py-2 rounded-sm text-white font-medium bg-[#00D390] hover:opacity-90 transition">
+                            <button onClick={() => UnInstallApp(app.id)} className="px-4 py-2 rounded-sm text-white font-medium bg-[#00D390] hover:opacity-90 transition">
                                 Uninstall
                             </button>
                         </div>
                     ))}
+
+                    {InstalledAppsArray.length === 0 && (
+                        <p className="col-span-full text-gray-500 text-5xl mt-6">
+                            No Apps Installed.
+                        </p>
+                    )}
                 </div>
 
 
