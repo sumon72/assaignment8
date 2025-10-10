@@ -47,7 +47,7 @@ const Apps = () => {
                         <span>({InstalledAppsArray.length})</span><span> Apps Found</span>
                     </div>
 
-                    {/* Dropdown */}
+                    {/* Sorting */}
                     <div className="dropdown dropdown-bottom">
                         <div tabIndex={0} role="button" className="btn m-1">{dropdownLabel}</div>
                         <ul tabIndex={0} className="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
@@ -68,7 +68,7 @@ const Apps = () => {
                             key={i}
                             className="flex items-center justify-between bg-base-200 shadow-md p-4 rounded-xl hover:shadow-lg transition"
                         >
-                            {/* Left: Image */}
+                            
                             <div className="flex items-center space-x-4">
                                 <div className="w-16 h-16 rounded-lg overflow-hidden flex-shrink-0">
                                     <img
@@ -78,7 +78,7 @@ const Apps = () => {
                                     />
                                 </div>
 
-                                {/* Middle: Title + Rating */}
+                                
                                 <div>
                                     <h3 className="font-medium text-base">{app.title}</h3>
                                     <div className="flex items-center mt-1 text-sm space-x-3">
@@ -95,7 +95,7 @@ const Apps = () => {
                                 </div>
                             </div>
 
-                            {/* Right: Uninstall Button */}
+                           
                             <button onClick={() => UnInstallApp(app.id)} className="px-4 py-2 rounded-sm text-white font-medium bg-[#00D390] hover:opacity-90 transition">
                                 Uninstall
                             </button>
